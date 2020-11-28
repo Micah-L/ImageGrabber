@@ -1,0 +1,13 @@
+<!doctype html>
+<title>Found {{num_images}} images</title>
+<body>
+<table>
+    {% for image in images %}
+    <tr>
+        <td>
+        <a href={{ image }}><img src={{ image }} alt={{ image }} ></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
