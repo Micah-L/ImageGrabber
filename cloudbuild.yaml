@@ -1,0 +1,7 @@
+steps:
+  # build & push the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/fluid-root-278821_cloudbuild', '.' ]
+  # Deploy container image to Cloud Run
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ['beta', 'run', 'deploy', 'todo', '--image', 'gcr.io/$PROJECT_ID/fluid-root-278821_cloudbuild', '--region', 'us-central1', '--allow-unauthenticated', '--platform', 'managed']
