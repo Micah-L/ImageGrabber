@@ -1,4 +1,4 @@
+gunicorn
 selenium
 webdriver_manager
 flask
-gunicorn

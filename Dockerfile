@@ -1,7 +1,8 @@
 # Dockerfile
 FROM python:3.8
 RUN apt-get update -y
-RUN apt-get install -y --fix-missing python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools libglib2.0-0 libsm6 libxrender-dev libxext6
+RUN apt-get install -y --fix-missing python3-pip python3-dev python3-setuptools
+#build-essential libssl-dev libffi-dev libglib2.0-0 libsm6 libxrender-dev libxext6 
 COPY . /app
 WORKDIR /app
 RUN pip install --upgrade pip
