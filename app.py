@@ -25,9 +25,14 @@ def favicon():
 @app.route('/')
 def home():
     return render_template("home.html")
-    
+
 @app.route('/<path:url>')
 def do_thing(url):
-    print(f"Getting images from: {url}")
+    # print(f"Getting images from: {url}")
     images = get_image_urls_in_page(url)
     return render_template("show_images.html", num_images = len(images), images = images)
+
+if __name__ == '__main__':
+    HOST = '0.0.0.0'
+    PORT = 8080
+    app.run(HOST, PORT, debug=True) 
