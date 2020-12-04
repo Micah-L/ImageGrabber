@@ -1,5 +1,31 @@
 <!doctype html>
-<title> Image finding utility </title>
+<title> {% block title %} Image extracting utility {% endblock %}</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+function goToURL()
+{
+    window.location.href = '/' + document.getElementById('grabURL').value
+}
+
+$(document).keyup(function(event) {
+    if ($(".grabURL").is(":focus") && event.key == "Enter") {
+        goToURL()
+    }
+});
+
+
+</script>
+
 <body>
-To easily view the images in some webpage, just add "/[your_long_url_here]" to the address in the address bar. Include http://www...
+
+To extract photos from a webpage, simply add <code> /http://somewebsite.com/my/beautiful/url/awebpage.html </code> to the address bar after the site name. Alternatively, paste the URL below:
+<br><br>
+<input class="grabURL" name="searchTxt" type="text"  id="grabURL" >
+<input type="button" value="Go" onClick="goToURL()" >
+<br><br>
+
+{% block content %}
+{% endblock %}
+
 </body>

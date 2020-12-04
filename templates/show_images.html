@@ -1,6 +1,7 @@
-<!doctype html>
-<title>Found {{num_images}} images</title>
+{% extends "home.html" %}
+<title>{% block title %} Found {{num_images}} images {% endblock %}</title>
 <body>
+{% block content %}
 <table>
     {% for image in images %}
     <tr>
@@ -10,4 +11,5 @@
     </tr>
     {% endfor %}
 </table>
+{% endblock %}
 </body>
