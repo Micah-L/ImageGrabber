@@ -59,4 +59,4 @@ RUN google-chrome --version
 RUN pip install pipenv
 RUN pip install -r requirements.txt
 RUN pipenv install --deploy --system
-CMD exec gunicorn --bind :$PORT --workers 8 --threads 8 main:app
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 main:app
