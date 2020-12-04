@@ -1,13 +1,17 @@
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 from flask import Flask, render_template, send_from_directory
 import os
 
-options = webdriver.ChromeOptions()
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-dev-shm-usage')
-options.add_argument('--disable-extensions')
-options.add_argument('--use-gl=swiftshader')
+
+
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+
+options = webdriver.FirefoxOptions()
+# options.add_argument('--no-sandbox')
+# options.add_argument('--disable-dev-shm-usage')
+# options.add_argument('--disable-extensions')
+# options.add_argument('--use-gl=swiftshader')
 options.add_argument('--user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36"')
 options.add_argument('headless')
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
