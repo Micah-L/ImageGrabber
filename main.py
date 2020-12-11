@@ -16,7 +16,7 @@ driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 def get_image_urls_in_page(url):
     print(f"URL passed: {url}")
     global driver
-    driver.get(url)
+    driver.get(url, cookies = cookies)
     img_elems = driver.find_elements_by_tag_name("img")
     return [img.get_attribute("src") for img in img_elems]
 ###
